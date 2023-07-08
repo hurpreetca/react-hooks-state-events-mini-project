@@ -16,6 +16,7 @@ function CategoryFilter({ categories, selectedCategory, setSelectedCategory }) {
       </button>
     );
   });
+
   return (
     <div className="categories">
       <h5>Category filters</h5>

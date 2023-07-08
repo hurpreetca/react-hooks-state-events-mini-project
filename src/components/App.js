@@ -10,6 +10,15 @@ function App() {
   const [newTasks, setNewTasks] = useState(TASKS);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const taskByCategory = newTasks.filter((task) => {
+    if (selectedCategory === "All") {
+      return true;
+    }
+    if (selectedCategory === "") {
+      return true;
+    }
+    return task.category === selectedCategory;
+  });
   function onTaskFormSubmit(newTask) {
     setNewTasks([...newTasks, newTask]);
   }
@@ -27,7 +36,7 @@ function App() {
         onTaskFormSubmit={onTaskFormSubmit}
       />
       <TaskList
-        tasks={newTasks}
+        tasks={taskByCategory}
         setNewTasks={setNewTasks}
         selectedCategory={selectedCategory}
       />

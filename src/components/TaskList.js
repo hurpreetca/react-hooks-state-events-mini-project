@@ -2,23 +2,23 @@ import React from "react";
 import Task from "./Task";
 
 function TaskList({ tasks, setNewTasks, selectedCategory }) {
-  function handleRemoveButton(event) {
+  function handleRemoveButton(text) {
     setNewTasks(
       tasks.filter((task) => {
-        return task.text !== event.target.parentElement.children[1].innerText;
+        return task.text !== text;
       })
     );
   }
-  const taskByCategory = tasks.filter((task) => {
-    if (selectedCategory === "All") {
-      return true;
-    }
-    if (selectedCategory === "") {
-      return true;
-    }
-    return task.category === selectedCategory;
-  });
-  const taskDisplay = taskByCategory.map((task) => {
+  // const taskByCategory = tasks.filter((task) => {
+  //   if (selectedCategory === "All") {
+  //     return true;
+  //   }
+  //   if (selectedCategory === "") {
+  //     return true;
+  //   }
+  //   return task.category === selectedCategory;
+  // });
+  const taskDisplay = tasks.map((task) => {
     return (
       <Task
         key={task.text}
